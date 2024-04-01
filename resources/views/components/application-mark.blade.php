@@ -1,4 +1,65 @@
-<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" {{ $attributes }}>
-  <path d="M11.395 44.428C4.557 40.198 0 32.632 0 24 0 10.745 10.745 0 24 0a23.891 23.891 0 0113.997 4.502c-.2 17.907-11.097 33.245-26.602 39.926z" fill="#6875F5"/>
-  <path d="M14.134 45.885A23.914 23.914 0 0024 48c13.255 0 24-10.745 24-24 0-3.516-.756-6.856-2.115-9.866-4.659 15.143-16.608 27.092-31.75 31.751z" fill="#6875F5"/>
+<svg id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 807 807" class="w-12">
+    <defs>
+        <style>.cls-1 {
+                fill: #ef7c80;
+            }
+
+            .cls-2 {
+                fill: #464646;
+            }
+
+            .cls-3 {
+                fill: #f9ee7f;
+            }
+
+            .cls-4 {
+                fill: #94c569;
+            }
+
+            .cls-5 {
+                fill: #f9bd80;
+            }
+
+            .cls-6 {
+                fill: #6ab42d;
+            }
+
+            .cls-7 {
+                fill: #e5e3e3;
+            }</style>
+    </defs>
+    <title>logo-tierlistplus</title>
+    <rect width="807" height="807" rx="30"/>
+    <rect class="cls-1" x="184.33" y="28.94" width="132.53" height="132.53" rx="20"/>
+    <rect class="cls-1" x="31.42" y="28.94" width="132.53" height="132.53" rx="20"/>
+    <rect class="cls-2" x="337.24" y="29.07" width="132.53" height="132.53" rx="20"/>
+    <rect class="cls-2" x="511.65" y="51.15" width="132.53" height="132.53" rx="20"
+          transform="translate(438.99 673.33) rotate(-90)"/>
+    <rect class="cls-2" x="664.56" y="51.02" width="132.53" height="132.53" rx="20"
+          transform="translate(592.04 826.1) rotate(-90)"/>
+    <rect class="cls-3" x="31.42" y="337.13" width="132.53" height="132.53" rx="20"/>
+    <rect class="cls-3" x="664.56" y="359.21" width="132.53" height="132.53" rx="20"
+          transform="translate(283.85 1134.29) rotate(-90)"/>
+    <rect class="cls-4" x="184.33" y="491.23" width="132.53" height="132.53" rx="20"/>
+    <rect class="cls-4" x="31.42" y="491.23" width="132.53" height="132.53" rx="20"/>
+    <rect class="cls-4" x="511.65" y="513.44" width="132.53" height="132.53" rx="20"
+          transform="translate(-23.29 1135.61) rotate(-90)"/>
+    <rect class="cls-2" x="664.56" y="513.3" width="132.53" height="132.53" rx="20"
+          transform="translate(129.75 1288.39) rotate(-90)"/>
+    <rect class="cls-2" x="184.33" y="183.04" width="132.53" height="132.53" rx="20"/>
+    <rect class="cls-5" x="31.42" y="183.04" width="132.53" height="132.53" rx="20"/>
+    <rect class="cls-2" x="511.65" y="205.25" width="132.53" height="132.53" rx="20"
+          transform="translate(284.9 827.42) rotate(-90)"/>
+    <rect class="cls-2" x="664.56" y="205.11" width="132.53" height="132.53" rx="20"
+          transform="translate(437.94 980.2) rotate(-90)"/>
+    <rect class="cls-6" x="184.33" y="645.32" width="132.53" height="132.53" rx="20"/>
+    <rect class="cls-6" x="31.42" y="645.32" width="132.53" height="132.53" rx="20"/>
+    <rect class="cls-6" x="337.24" y="645.45" width="132.53" height="132.53" rx="20"/>
+    <rect class="cls-2" x="511.65" y="667.53" width="132.53" height="132.53" rx="20"
+          transform="translate(-177.39 1289.71) rotate(-90)"/>
+    <rect class="cls-2" x="664.56" y="667.4" width="132.53" height="132.53" rx="20"
+          transform="translate(-24.34 1442.48) rotate(-90)"/>
+    <path class="cls-7"
+          d="M612.64,358.68H514.91A23.65,23.65,0,0,1,491.26,335V236.78a31.53,31.53,0,0,0-31.53-31.53H390.27a31.53,31.53,0,0,0-31.53,31.53V335a23.65,23.65,0,0,1-23.65,23.65H237.36a31.53,31.53,0,0,0-31.53,31.53v69.46a31.52,31.52,0,0,0,31.53,31.53h97.73a23.65,23.65,0,0,1,23.65,23.65v99a31.52,31.52,0,0,0,31.53,31.53h69.46a31.52,31.52,0,0,0,31.53-31.53v-99a23.65,23.65,0,0,1,23.65-23.65h97.73a31.52,31.52,0,0,0,31.53-31.53V390.21A31.53,31.53,0,0,0,612.64,358.68Z"
+          transform="translate(-21.5 -22)"/>
 </svg>
