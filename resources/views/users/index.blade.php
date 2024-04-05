@@ -15,32 +15,19 @@
                         {{ $title }}
                     </h1>
 
-                    <p class="mt-6 text-gray-500 dark:text-gray-400 leading-relaxed">
+                    <p class="mt-6 text-gray-500 dark:text-gray-400 leading-relaxed mb-10">
                         {!! $description !!}
                     </p>
 
                     @if ($message = Session::get('success'))
-                        <div class="alert alert-success">
+                        <div class="alert alert-success mb-10">
                             <p>{{ $message }}</p>
                         </div>
                     @endif
 
                      @if (count($users) > 0)
                          @foreach ($users as $user)
-                             <div class="row">
-                                 <div class="col-12">
-                                     <div class="row">
-                                         <div class="col-2">
-                                             <img class="img-fluid" style="max-width:50%;" alt="">
-                                         </div>
-                                         <div class="col-10">
-                                             <h4>{{$user->name}}</h4>
-                                         </div>
-                                     </div>
-                                     <div class="desc">{{$user->email}}</div>
-                                     <hr>
-                                 </div>
-                             </div>
+                             @include('components.users.row')
                          @endforeach
                      @else
                          <p>No Users found</p>
