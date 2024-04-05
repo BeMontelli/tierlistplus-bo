@@ -25,8 +25,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => [
 
     // Users
     Route::get('/users', UserController::class .'@index')->name('users.index');
-    Route::get('/user/{id}', UserController::class .'@show')->name('users.show');
-    Route::get('/user/{id}/edit', UserController::class .'@edit')->name('users.edit');
-    Route::put('/user/{id}', UserController::class .'@update')->name('users.update');
-    Route::delete('/user/{id}', UserController::class .'@destroy')->name('users.destroy');
+    Route::get('/users/{id}', UserController::class .'@edit')->name('users.edit');
+    Route::put('/users/{id}', UserController::class .'@update')->name('users.update');
+    Route::delete('/users/{id}', UserController::class .'@destroy')->name('users.destroy');
 });
