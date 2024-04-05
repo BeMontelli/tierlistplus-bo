@@ -17,7 +17,7 @@
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ms-5 sm:flex">
-                    <x-nav-link href="{{ route('tierlists') }}" :active="request()->routeIs('tierlists')">
+                    <x-nav-link href="{{ route('tierlists.index') }}" :active="request()->routeIs('tierlists')">
                         {{ __('TierLists') }}
                     </x-nav-link>
                 </div>
