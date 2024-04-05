@@ -26,6 +26,16 @@
                     @endif
 
                      @if (count($users) > 0)
+
+                        <div class="row mb-4">
+                            <div class="flex">
+                                <div class="id flex items-center flex-none w-10 font-medium text-gray-900 dark:text-white">ID</div>
+                                <div class="name flex items-center w-5 text-left flex-auto font-medium text-gray-900 dark:text-white">Login</div>
+                                <div class="email flex items-center justify-center w-5 text-left flex-auto font-medium text-gray-900 dark:text-white">E-mail</div>
+                                <div class="actions flex flex-center justify-end items-center text-right flex-auto font-medium text-gray-900 dark:text-white">Actions</div>
+                            </div>
+                        </div>
+
                          @foreach ($users as $user)
                              @include('components.users.row')
                          @endforeach
