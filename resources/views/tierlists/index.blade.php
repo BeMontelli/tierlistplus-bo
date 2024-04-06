@@ -14,7 +14,7 @@
                     <h1 class="mb-6 text-2xl font-medium text-gray-900 dark:text-white">
                         {{ $title }}
                     </h1>
-                    <a class="mr-2 bg-cyan-500 hover:bg-cyan-700 text-white font-bold py-2 px-4 rounded" href={{ route('tierlists.create') }}>Add Tierlist</a>
+                    <a class="mr-2 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" href={{ route('tierlists.create') }}>Add Tierlist</a>
 
                     <p class="mt-6 text-gray-500 dark:text-gray-400 leading-relaxed mb-10">
                         {!! $description !!}

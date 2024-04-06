@@ -31,9 +31,9 @@
 
                         <div class="mb-6">
                             <label class="block text-gray-500 dark:text-gray-400 leading-relaxed mb-2" for="title">Title</label>
-                            <input class="block form-control" type="text" name="title">
+                            <input class="rounded-[10px] block form-control" type="text" name="title" id="title">
                             <label class="block mt-6 text-gray-500 dark:text-gray-400 leading-relaxed mb-2" for="description">Description</label>
-                            <textarea class="block form-control" name="description" id="description" cols="30" rows="10"></textarea>
+                            <textarea class="rounded-[10px] block form-control" name="description" id="description" cols="30" rows="10"></textarea>
                         </div>
                         <button type="submit" class="ease-in duration-300 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Save</button>
                     </form>
