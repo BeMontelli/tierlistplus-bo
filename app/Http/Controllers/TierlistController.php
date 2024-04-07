@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Tierlist;
+use Illuminate\Support\Facades\Auth;
 
 class TierlistController extends Controller
 {
@@ -47,7 +48,13 @@ class TierlistController extends Controller
             'title' => 'required|max:255',
             'description' => 'nullable',
         ]);
-        Tierlist::create($request->all());
+
+        $tierlist = new Tierlist();
+        $tierlist->title = $request->title;
+        $tierlist->description = $request->description;
+        $tierlist->user_id = Auth::id();
+        $tierlist->save();
+
         return redirect()->route('tierlists.index')
             ->with('success', 'Tierlist created successfully.');
     }
