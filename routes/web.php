@@ -29,7 +29,6 @@ Route::group(['prefix' => 'dashboard', 'middleware' => [
     Route::put('/tierlists/{post}', TierlistController::class .'@update')->name('tierlists.update');
     Route::delete('/tierlists/{post}', TierlistController::class .'@destroy')->name('tierlists.destroy');
 
-
     // Categories
     Route::get('/categories', CategoryController::class .'@index')->name('categories.index');
     Route::get('/categories/create', CategoryController::class . '@create')->name('categories.create');
