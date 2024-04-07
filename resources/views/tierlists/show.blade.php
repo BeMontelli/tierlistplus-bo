@@ -11,9 +11,10 @@
 
                 <div class="p-6 lg:p-8 bg-white dark:bg-gray-800 dark:bg-gradient-to-bl dark:from-gray-700/50 dark:via-transparent border-b border-gray-200 dark:border-gray-700">
 
-                    <h1 class="mb-6 text-2xl font-medium text-gray-900 dark:text-white">
+                    <h1 class="mb-1 text-2xl font-medium text-gray-900 dark:text-white">
                         {{ __('Tierlist') }} : {{$tierlist->title}}
                     </h1>
+                    <span class="by block mb-4 text-gray-800 dark:text-white/50">{{$tierlist->user->name}}</span>
 
                     <div class="mb-10">{!! $tierlist->description !!}</div>
 
