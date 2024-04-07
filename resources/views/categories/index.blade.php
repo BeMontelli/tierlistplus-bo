@@ -14,7 +14,7 @@
                     <h1 class="mb-6 text-2xl font-medium text-gray-900 dark:text-white">
                         {{ $title }}
                     </h1>
-                    <a class="mr-2 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" href={{ route('tierlists.create') }}>{{ $addTxt }}</a>
+                    <a class="mr-2 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" href={{ route('categories.create') }}>{{ $addTxt }}</a>
 
                     <p class="mt-6 text-gray-500 dark:text-gray-400 leading-relaxed mb-10">
                         {!! $description !!}
@@ -26,7 +26,7 @@
                         </div>
                     @endif
 
-                     @if (count($tierlists) > 0)
+                     @if (count($categories) > 0)
 
                         <div class="row mb-4">
                             <div class="flex">
@@ -36,8 +36,8 @@
                             </div>
                         </div>
 
-                         @foreach ($tierlists as $tierlist)
-                             @include('components.tierlists.row')
+                         @foreach ($categories as $category)
+                             @include('components.categories.row')
                          @endforeach
                      @else
                          <p class="text-orange-400 font-i">→ {{ $noresults }}</p>

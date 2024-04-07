@@ -18,6 +18,8 @@ class TierlistController extends Controller
             [
                 'title' => __('Tierlists'),
                 'description' => __('Full <i>Tierlists</i> listing'),
+                'addTxt' => __('Create tierlist'),
+                'noresults' => __('No Tierlist found'),
                 'tierlists' => $tierlists
             ]
         );
