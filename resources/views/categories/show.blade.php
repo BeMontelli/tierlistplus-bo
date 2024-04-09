@@ -26,7 +26,7 @@
                         @endif
                     </div>
 
-                    <div class="mb-10">{!! $category->description !!}</div>
+                    <div class="mb-10 bg-white border-2 border-black-300 p-6 rounded">{!! $category->description !!}</div>
 
                     <a href="{{ route('categories.edit', $category->id) }}" class="mr-2 bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded">Edit</a>
 
