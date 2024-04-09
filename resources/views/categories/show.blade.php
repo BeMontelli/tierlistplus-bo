@@ -15,7 +15,18 @@
                         {{ __('Category') }} : {{$category->title}}
                     </h1>
 
-                    <div class="mb-10">{!! $category->description !!}</div>
+                    <div class="categories block mb-8">
+                        @if(!empty($category->tierlists) && count($category->tierlists) > 0)
+                            <h2 class="by block mb-4 text-gray-800 dark:text-white">{{ __('Tierlists related') }}</h2>
+                            @foreach($category->tierlists as $tierlist)
+                                <a href="{{ route('tierlists.show', $tierlist->id) }}" class="mr-2 hover:text-orange-800 text-orange-400 font-bold">{{ $tierlist->title }}</a>
+                            @endforeach
+                        @else
+                            <h2 class="by block mb-4 text-gray-800 dark:text-white">{{ __('No tierlists for this category') }}</h2>
+                        @endif
+                    </div>
+
+                    <div class="mb-10 bg-white border-2 border-black-300 p-6 rounded">{!! $category->description !!}</div>
 
                     <a href="{{ route('categories.edit', $category->id) }}" class="mr-2 bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded">Edit</a>
 

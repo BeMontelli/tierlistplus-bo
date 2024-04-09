@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Tierlist;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Category;
 
 class TierlistController extends Controller
 {
@@ -40,7 +41,10 @@ class TierlistController extends Controller
      */
     public function create()
     {
-        return view('tierlists.create');
+        $categories = Category::all();
+        return view('tierlists.create',[
+            "categories" => $categories
+        ]);
     }
     public function store(Request $request)
     {
@@ -53,7 +57,14 @@ class TierlistController extends Controller
         $tierlist->title = $request->title;
         $tierlist->description = $request->description;
         $tierlist->user_id = Auth::id();
+
         $tierlist->save();
+
+        if(!empty($request->categories) && count($request->categories)) {
+            foreach ($request->categories as $category) {
+                $tierlist->categories()->attach(intval($category));
+            }
+        }
 
         return redirect()->route('tierlists.index')
             ->with('success', 'Tierlist created successfully.');
@@ -65,7 +76,14 @@ class TierlistController extends Controller
     public function edit($id)
     {
         $tierlist = Tierlist::find($id);
-        return view('tierlists.edit', compact('tierlist'));
+        $categories = Category::all();
+        $idCategories = array_column($tierlist->categories->all(), 'id');
+
+        return view('tierlists.edit', [
+            "tierlist" => $tierlist,
+            "categories" => $categories,
+            "idCategories" => $idCategories
+        ]);
     }
     public function update(Request $request, $id)
     {
@@ -73,7 +91,11 @@ class TierlistController extends Controller
             'title' => 'required|max:255',
             'description' => 'nullable',
         ]);
+
         $tierlist = Tierlist::find($id);
+
+        $tierlist->categories()->sync($request->categories);
+
         $tierlist->update($request->all());
         return redirect()->route('tierlists.index')
             ->with('success', 'Tierlist updated successfully.');
@@ -85,6 +107,9 @@ class TierlistController extends Controller
     public function destroy($id)
     {
         $tierlist = Tierlist::find($id);
+
+        $tierlist->categories()->detach();
+
         $tierlist->delete();
         return redirect()->route('tierlists.index')
             ->with('success', 'Tierlist deleted successfully');

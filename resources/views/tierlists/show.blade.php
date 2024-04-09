@@ -16,7 +16,18 @@
                     </h1>
                     <span class="by block mb-4 text-gray-800 dark:text-white/50">{{$tierlist->user->name}}</span>
 
-                    <div class="mb-10">{!! $tierlist->description !!}</div>
+                    <div class="categories block mb-8">
+                        @if(!empty($tierlist->categories) && count($tierlist->categories) > 0)
+                            <h2 class="by block mb-4 text-gray-800 dark:text-white">{{ __('Categories') }}</h2>
+                            @foreach($tierlist->categories as $category)
+                                <a href="{{ route('categories.show', $category->id) }}" class="mr-2 hover:text-orange-800 text-orange-400 font-bold">{{ $category->title }}</a>
+                            @endforeach
+                        @else
+                            <h2 class="by block mb-4 text-gray-800 dark:text-white">{{ __('No categories for tierlist') }}</h2>
+                        @endif
+                    </div>
+
+                    <div class="mb-10 bg-white border-2 border-black-300 p-6 rounded">{!! $tierlist->description !!}</div>
 
                     <a href="{{ route('tierlists.edit', $tierlist->id) }}" class="mr-2 bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded">Edit</a>
 
