@@ -78,6 +78,9 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         $category = Category::find($id);
+
+        $category->tierlists()->detach();
+
         $category->delete();
         return redirect()->route('categories.index')
             ->with('success', 'Category deleted successfully');

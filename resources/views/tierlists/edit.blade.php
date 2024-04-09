@@ -34,6 +34,19 @@
                             <input value="{{$tierlist->title}}" class="rounded-[10px] block form-control" type="text" name="title" id="title">
                             <label class="block mt-6 text-gray-500 dark:text-gray-400 leading-relaxed mb-2" for="description">Description</label>
                             <textarea class="rounded-[10px] block form-control" name="description" id="description" cols="30" rows="10">{{$tierlist->description}}</textarea>
+
+                            <fieldset class="mb-6 text-white">
+                                <legend>Categories</legend>
+                                @if (!empty($categories) && count($categories) > 0)
+                                    @foreach ($categories as $category)
+                                        <div>
+                                            <input type="checkbox" id="cat-{{ $category->id }}" name="categories[]" value="{{ $category->id }}" @if (in_array($category->id, $idCategories)) checked @endif />
+                                            <label for="cat-{{ $category->id }}">{{ $category->title }}</label>
+                                        </div>
+                                    @endforeach
+                                @endif
+                            </fieldset>
+
                         </div>
                         <button type="submit" class="ease-in duration-300 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Save</button>
                     </form>
