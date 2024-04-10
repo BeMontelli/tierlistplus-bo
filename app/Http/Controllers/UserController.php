@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Tierlist;
 use Illuminate\Http\Request;
 use App\Models\User;
 
@@ -44,6 +45,7 @@ class UserController extends Controller
      */
     public function destroy(string $id)
     {
+        Tierlist::where("user_id", $id)->delete();
         User::where('id', $id)->delete();
 
         return redirect()->route('users.index');
