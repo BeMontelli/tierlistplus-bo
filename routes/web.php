@@ -6,7 +6,7 @@ use App\Http\Controllers\TierlistController;
 use App\Http\Controllers\CategoryController;
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('dashboard');
 });
 
 Route::group(['prefix' => 'dashboard', 'middleware' => [
