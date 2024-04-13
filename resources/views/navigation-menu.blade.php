@@ -16,21 +16,23 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ms-5 sm:flex">
-                    <x-nav-link href="{{ route('tierlists.index') }}" :active="request()->routeIs('tierlists')">
-                        {{ __('TierLists') }}
-                    </x-nav-link>
-                </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ms-5 sm:flex">
-                    <x-nav-link href="{{ route('categories.index') }}" :active="request()->routeIs('categories.index')">
-                        {{ __('Categories') }}
-                    </x-nav-link>
-                </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ms-5 sm:flex">
-                    <x-nav-link href="{{ route('users.index') }}" :active="request()->routeIs('users.index')">
-                        {{ __('Users') }}
-                    </x-nav-link>
-                </div>
+                @if(Auth::user()->role)
+                    <div class="hidden space-x-8 sm:-my-px sm:ms-5 sm:flex">
+                        <x-nav-link href="{{ route('tierlists.index') }}" :active="request()->routeIs('tierlists')">
+                            {{ __('TierLists') }}
+                        </x-nav-link>
+                    </div>
+                    <div class="hidden space-x-8 sm:-my-px sm:ms-5 sm:flex">
+                        <x-nav-link href="{{ route('categories.index') }}" :active="request()->routeIs('categories.index')">
+                            {{ __('Categories') }}
+                        </x-nav-link>
+                    </div>
+                    <div class="hidden space-x-8 sm:-my-px sm:ms-5 sm:flex">
+                        <x-nav-link href="{{ route('users.index') }}" :active="request()->routeIs('users.index')">
+                            {{ __('Users') }}
+                        </x-nav-link>
+                    </div>
+                @endif
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ms-6">
@@ -153,11 +155,29 @@
 
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
-        <div class="pt-2 pb-3 space-y-1">
+        <div class=" space-y-1">
             <x-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
         </div>
+
+        @if(Auth::user()->role)
+            <div class=" space-y-1">
+                <x-responsive-nav-link href="{{ route('tierlists.index') }}" :active="request()->routeIs('tierlists.index')">
+                    {{ __('TierLists') }}
+                </x-responsive-nav-link>
+            </div>
+            <div class=" space-y-1">
+                <x-responsive-nav-link href="{{ route('categories.index') }}" :active="request()->routeIs('categories.index')">
+                    {{ __('Categories') }}
+                </x-responsive-nav-link>
+            </div>
+            <div class=" space-y-1">
+                <x-responsive-nav-link href="{{ route('users.index') }}" :active="request()->routeIs('users.index')">
+                    {{ __('Users') }}
+                </x-responsive-nav-link>
+            </div>
+        @endif
 
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200 dark:border-gray-600">

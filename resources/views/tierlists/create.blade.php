@@ -32,6 +32,10 @@
                         <div class="mb-6">
                             <label class="block text-gray-500 dark:text-gray-400 leading-relaxed mb-2" for="title">Title</label>
                             <input class="rounded-[10px] block form-control" type="text" name="title" id="title">
+
+                            <label class="block text-gray-500 dark:text-gray-400 leading-relaxed mb-2" for="slug">Slug <span class="italic text-sm text-gray-400 dark:text-gray-600">(parsed to url)</span></label>
+                            <input class="rounded-[10px] block form-control" type="text" name="slug" id="slug">
+
                             <label class="block mt-6 text-gray-500 dark:text-gray-400 leading-relaxed mb-2" for="description">Description</label>
                             <textarea class="rounded-[10px] block form-control" name="description" id="description" cols="30" rows="10"></textarea>
                         </div>
