@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Support\Str;
 
 class Tierlist extends Model
 {
@@ -13,6 +14,7 @@ class Tierlist extends Model
 
     protected $fillable = [
         'title',
+        'slug',
         'description',
     ];
 
@@ -24,5 +26,9 @@ class Tierlist extends Model
     public function categories() : BelongsToMany
     {
         return $this->belongsToMany(Category::class);
+    }
+
+    public static function getUniqueSlug($slug) {
+        return Str::slug($slug, '-');
     }
 }

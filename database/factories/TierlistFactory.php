@@ -2,8 +2,10 @@
 
 namespace Database\Factories;
 
+use App\Models\Tierlist;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\User;
+use Illuminate\Support\Str;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Tierlist>
@@ -17,8 +19,11 @@ class TierlistFactory extends Factory
      */
     public function definition(): array
     {
+        $title = fake()->words(2, true);
+        $slug = Tierlist::getUniqueSlug($title);
         return [
-            'title' => fake()->words(2, true),
+            'title' => $title,
+            'slug' => $slug,
             'description' => fake()->paragraph(),
             'user_id' => User::all()->random()->id,
         ];

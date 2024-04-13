@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Tierlist;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Category;
+use Illuminate\Support\Str;
 
 class TierlistController extends Controller
 {
@@ -50,13 +51,17 @@ class TierlistController extends Controller
     {
         $request->validate([
             'title' => 'required|max:255',
+            'slug' => 'required|max:255|unique:tierlists',
             'description' => 'nullable',
         ]);
+
+        $slug = Tierlist::getUniqueSlug($request->slug);
 
         $tierlist = new Tierlist();
         $tierlist->title = $request->title;
         $tierlist->description = $request->description;
         $tierlist->user_id = Auth::id();
+        $tierlist->slug = $slug;
 
         $tierlist->save();
 
@@ -89,14 +94,19 @@ class TierlistController extends Controller
     {
         $request->validate([
             'title' => 'required|max:255',
+            'slug' => 'required|max:255|unique:tierlists',
             'description' => 'nullable',
         ]);
+        $req = $request->all();
 
         $tierlist = Tierlist::find($id);
 
+        $slug = Tierlist::getUniqueSlug($request->slug);
+        $req['slug'] = $slug;
+
         $tierlist->categories()->sync($request->categories);
 
-        $tierlist->update($request->all());
+        $tierlist->update($req);
         return redirect()->route('tierlists.index')
             ->with('success', 'Tierlist updated successfully.');
     }
