@@ -16,7 +16,7 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
-                @if(Auth::user()->role)
+                @if(Auth::user()->isAdmin())
                     <div class="hidden space-x-8 sm:-my-px sm:ms-5 sm:flex">
                         <x-nav-link href="{{ route('tierlists.index') }}" :active="request()->routeIs('tierlists')">
                             {{ __('TierLists') }}
@@ -161,7 +161,7 @@
             </x-responsive-nav-link>
         </div>
 
-        @if(Auth::user()->role)
+        @if(Auth::user()->isAdmin())
             <div class=" space-y-1">
                 <x-responsive-nav-link href="{{ route('tierlists.index') }}" :active="request()->routeIs('tierlists.index')">
                     {{ __('TierLists') }}
