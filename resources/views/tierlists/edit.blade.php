@@ -31,7 +31,7 @@
 
                         <div class="mb-6">
                             <label class="block text-gray-500 dark:text-gray-400 leading-relaxed mb-2" for="slug">Slug <span class="italic text-sm text-gray-400 dark:text-gray-600">(parsed to url)</span></label>
-                            <input value="{{$tierlist->slug}}" class="rounded-[10px] block form-control" type="text" name="slug" id="slug">
+                            <input value="{{$tierlist->slug}}" class="inputslug rounded-[10px] block form-control" type="text" name="slug" id="slug">
 
                             <label class="block mt-6 text-gray-500 dark:text-gray-400 leading-relaxed mb-2" for="title">Title</label>
                             <input value="{{$tierlist->title}}" class="rounded-[10px] block form-control" type="text" name="title" id="title">
