@@ -1,0 +1,49 @@
+.themeswitch {
+    position: relative;
+    height: 34px;
+    width: 34px;
+    border-radius: 100%;
+    cursor: pointer;
+    .sun{
+        .solid{
+            display: none;
+        }
+    }
+    .moon{
+        display: none;
+    }
+    &:hover{
+        .sun{
+            .path{
+                display: none;
+            }
+            .solid{
+                display: block;
+            }
+        }
+    }
+}
+
+html.dark {
+    .themeswitch {
+        .sun{
+            display: none;
+        }
+        .moon{
+            display: block;
+            .solid{
+                display: none;
+            }
+        }
+        &:hover{
+            .moon{
+                .path{
+                    display: none;
+                }
+                .solid{
+                    display: block;
+                }
+            }
+        }
+    }
+}
