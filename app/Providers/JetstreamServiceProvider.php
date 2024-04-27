@@ -31,13 +31,24 @@ class JetstreamServiceProvider extends ServiceProvider
      */
     protected function configurePermissions(): void
     {
-        Jetstream::defaultApiTokenPermissions(['read']);
+        Jetstream::defaultApiTokenPermissions([
+            'read:users',
+            'update:users',
+            'create:tierlists',
+            'read:tierlists',
+            'update:tierlists',
+            'delete:tierlists',
+        ]);
 
         Jetstream::permissions([
-            'create',
-            'read',
-            'update',
-            'delete',
+            'create:users',
+            'read:users',
+            'update:users',
+            'delete:users',
+            'create:tierlists',
+            'read:tierlists',
+            'update:tierlists',
+            'delete:tierlists',
         ]);
     }
 }
