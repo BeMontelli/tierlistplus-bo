@@ -11,8 +11,14 @@ class ApiUserController extends Controller
 {
     public function user(Request $request)
     {
-        return $request->user();
+        $user = $request->user();
+        $tokenObj = $user->currentAccessToken();
+        return response()->json([
+            'user' => $user,
+            'token' => $tokenObj->token
+        ], 201);
     }
+
     public function register(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -51,10 +57,11 @@ class ApiUserController extends Controller
             'update:tierlists',
             'delete:tierlists',
         ])->plainTextToken;
-        $user->token = $token;
 
-        // You can return the user data if needed
-        return response()->json(['user' => $user], 201);
+        return response()->json([
+            'user' => $user,
+            'token' => $token
+        ], 201);
     }
 
     public function login(Request $request)
