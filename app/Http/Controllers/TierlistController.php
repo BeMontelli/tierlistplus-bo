@@ -7,6 +7,7 @@ use App\Models\Tierlist;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Category;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
 
 class TierlistController extends Controller
 {
@@ -16,7 +17,7 @@ class TierlistController extends Controller
      */
     public function index()
     {
-        $tierlists = Tierlist::all()->sortByDesc('id');
+        $tierlists = DB::table('tierlists')->orderByDesc('id')->paginate(10);
         return view('tierlists.index',
             [
                 'title' => __('Tierlists'),

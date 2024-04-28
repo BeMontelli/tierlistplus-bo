@@ -39,6 +39,8 @@
                          @foreach ($categories as $category)
                              @include('components.categories.row')
                          @endforeach
+
+                        {{ $categories->links() }}
                      @else
                          <p class="text-orange-400 font-i">→ {{ $noresults }}</p>
                      @endif
