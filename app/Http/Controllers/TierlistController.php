@@ -16,7 +16,7 @@ class TierlistController extends Controller
      */
     public function index()
     {
-        $tierlists = Tierlist::all();
+        $tierlists = Tierlist::all()->sortByDesc('id');
         return view('tierlists.index',
             [
                 'title' => __('Tierlists'),
