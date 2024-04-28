@@ -16,6 +16,7 @@ class Tierlist extends Model
         'title',
         'slug',
         'description',
+        'format',
     ];
 
     public function user() : BelongsTo

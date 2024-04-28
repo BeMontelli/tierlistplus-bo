@@ -39,6 +39,8 @@
                          @foreach ($users as $user)
                              @include('components.users.row')
                          @endforeach
+
+                        {{ $users->links() }}
                      @else
                          <p>No Users found</p>
                      @endif

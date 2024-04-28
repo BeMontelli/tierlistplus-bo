@@ -39,6 +39,8 @@
                          @foreach ($tierlists as $tierlist)
                              @include('components.tierlists.row')
                          @endforeach
+
+                        {{ $tierlists->links() }}
                      @else
                          <p class="text-orange-400 font-i">→ {{ $noresults }}</p>
                      @endif

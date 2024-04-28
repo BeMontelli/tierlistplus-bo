@@ -25,6 +25,7 @@ class TierlistFactory extends Factory
             'title' => $title,
             'slug' => $slug,
             'description' => fake()->paragraph(),
+            'format' => 'Free',
             'user_id' => User::all()->random()->id,
         ];
     }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Tierlist;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -13,7 +14,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::orderBy('id', 'desc')->limit(10)->get();
+        $users = DB::table('users')->orderByDesc('id')->paginate(10);
         return view('users.index',
             [
                 'title' => __('Users'),

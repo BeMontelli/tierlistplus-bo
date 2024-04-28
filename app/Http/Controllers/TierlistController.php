@@ -7,6 +7,7 @@ use App\Models\Tierlist;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Category;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
 
 class TierlistController extends Controller
 {
@@ -16,7 +17,7 @@ class TierlistController extends Controller
      */
     public function index()
     {
-        $tierlists = Tierlist::all();
+        $tierlists = DB::table('tierlists')->orderByDesc('id')->paginate(10);
         return view('tierlists.index',
             [
                 'title' => __('Tierlists'),
@@ -53,6 +54,8 @@ class TierlistController extends Controller
             'title' => 'required|max:255',
             'slug' => 'required|max:255|unique:tierlists',
             'description' => 'nullable',
+            //'format' => 'required|in:free,1:1,16:9,4:3,63:88',
+            'format' => 'required|in:Free,Square,16/9,4/3,Card',
         ]);
 
         $slug = Tierlist::getUniqueSlug($request->slug);
@@ -60,6 +63,7 @@ class TierlistController extends Controller
         $tierlist = new Tierlist();
         $tierlist->title = $request->title;
         $tierlist->description = $request->description;
+        $tierlist->format = $request->format;
         $tierlist->user_id = Auth::id();
         $tierlist->slug = $slug;
 
@@ -96,6 +100,7 @@ class TierlistController extends Controller
             'title' => 'required|max:255',
             'slug' => 'required|max:255|unique:tierlists',
             'description' => 'nullable',
+            'format' => 'exclude',
         ]);
         $req = $request->all();
 
