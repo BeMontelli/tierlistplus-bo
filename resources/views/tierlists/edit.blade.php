@@ -39,8 +39,10 @@
                             <label class="block mt-6 text-gray-500 dark:text-gray-400 leading-relaxed mb-2" for="description">Description</label>
                             <textarea class="rounded-[10px] block form-control" name="description" id="description" cols="30" rows="10">{{$tierlist->description}}</textarea>
 
+                            <label class="block mt-6 text-gray-500 dark:text-gray-400 leading-relaxed" for="format">Format <span class="text-white">{{$tierlist->format}}</span></label>
+
                             <fieldset class="mb-6 text-white">
-                                <legend>Categories</legend>
+                                <legend class="block mt-6 text-gray-500 dark:text-gray-400 leading-relaxed mb-2">Categories</legend>
                                 @if (!empty($categories) && count($categories) > 0)
                                     @foreach ($categories as $category)
                                         <div>
